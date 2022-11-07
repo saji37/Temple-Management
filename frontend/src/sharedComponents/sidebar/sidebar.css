@@ -1,0 +1,25 @@
+#sideBar{
+  background-color: #fe8447;
+  padding-top: 80px;
+}
+span{
+  color: white;
+  font-weight: bold;
+}
+
+.sideBarEle:hover{
+  background-color:white;
+  color: #fe8447;
+}
+.sideBarEle:hover span{
+  background-color:white;
+  color: #fe8447;
+  
+}
+.sideBarEle:hover .icon{
+  color: #fe8447;
+  
+}
+.icon{
+  color:white;
+}

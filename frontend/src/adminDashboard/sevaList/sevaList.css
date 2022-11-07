@@ -1,0 +1,47 @@
+@media (min-width: 200px) {
+  main {
+    /* padding-left: 80px; */
+  }
+  #formContent{
+    margin-top: 80px;
+    margin-left: 10px;
+  }
+  .displayTable{
+    margin-left: 70px;
+  }
+}
+@media (min-width: 700px) {
+  main {
+    /* padding-left: 200px; */
+  }
+  #formContent{
+    margin-top: 100px;
+    margin-left: 150px;
+    min-width: 700px;
+  }
+  .displayTable{
+    margin-left: 50px;
+  }
+}
+@media (min-width: 991.98px) {
+    main {
+      /* padding-left: 240px; */
+    }
+    #formContent{
+      margin-top: 130px;
+
+    }
+    .displayTable{
+      margin-left: 350px;
+      padding: 20px;
+    }
+  }
+
+#addButton{
+  background-color: #fe8447;
+  color: white;
+  
+}
+
+
+ 

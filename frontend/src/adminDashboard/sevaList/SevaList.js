@@ -6,6 +6,7 @@ import AddSeva from "./AddSeva";
 import DisplayList from "./DisplayList";
 import { createSevaList, getSevaList , removeSevaList, updateSevaList } from "../../services/services";
 import "./sevaList.css";
+import ConfirmBox from "./components/ConfirmBox";
 function SevaList() {
   const [addPress, setAddPress] = useState(true);
   const [editPress, setEditPress] = useState(false);
@@ -90,6 +91,7 @@ function SevaList() {
           </main>
         </div>
       <DisplayList lists={list} removePerson={removePerson} updatePerson={updatePerson}/>
+      <ConfirmBox />
       </div>
     </div>
   );

@@ -62,7 +62,7 @@ function AddSeva(props) {
                 <input type="text" className="form-control " id="floatingInput" placeholder="Name" onChange={(e) =>setSName(e.target.value)} value={sname}/>
                 <label htmlFor="floatingInput ">Name</label>
               </div>
-              <button className="btn " id="addButton" onClick={toAddList}>
+              <button className="btn shadow shadow-lg" id="addButton" onClick={toAddList}>
               { (editPress)?'Edit': 'Add'}
               </button>
             </div>

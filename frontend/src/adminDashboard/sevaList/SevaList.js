@@ -4,6 +4,7 @@ import Header from "../../sharedComponents/header/Header";
 import Sidebar from "../../sharedComponents/sidebar/Sidebar";
 import AddSeva from "./AddSeva";
 import DisplayList from "./DisplayList";
+import { createSevaList, getSevaList , removeSevaList, updateSevaList } from "../../services/services";
 import "./sevaList.css";
 function SevaList() {
   const [addPress, setAddPress] = useState(true);
@@ -12,23 +13,30 @@ function SevaList() {
   const [eid,setEid] = useState(0)
   const [sname,setSName] = useState('');
 
+  useEffect(()=>{
+    getSevaList().then((data)=>data.json().then((data)=>setList(data)))
+  },[])
+
   function addPressed(){
     setAddPress(!addPress);
   }
 
  function addList(name){
+  createSevaList(name);
   setAddPress(true)
  setList( [...list, {'id':list.length,'name':name}] );
   }
 
   function removePerson(id){
+      removeSevaList(id);
       setList((lists) =>
        lists.filter((list) => list.id !== id)
       );
     };
 
     function updatePerson(id){
-      setAddPress(false)
+      setAddPress(false);
+    
       list.filter(l=>{
         if(l.id=== id){
           setEid(l.id)
@@ -48,6 +56,7 @@ function SevaList() {
       // ))
     }
     function editPerson(id,name){
+      updateSevaList(id,name);
       setList((lists) =>
       lists.map(obj =>{
         if(obj.id === id){

@@ -3,7 +3,7 @@ import Header from '../sharedComponents/header/Header'
 import Sidebar from '../sharedComponents/sidebar/Sidebar'
 import './dashboard.css'
 import Main from './main/Main'
-function dashboard() {
+function dashboard({ setActiveModel, activeModel }) {
   return (
     <div className='wrappedContent'>
       <header>
@@ -11,10 +11,10 @@ function dashboard() {
       </header>
       <div className="container-fluid">
     <div className="row flex-nowrap ">
-      <Sidebar />
+      <Sidebar setActiveModel={setActiveModel} activeModel={activeModel}/>
       </div>
     
-      <main style={{"marginTop": "58px"}} >
+      <main  >
   <div className="container pt-4">
     <Main />
     </div>

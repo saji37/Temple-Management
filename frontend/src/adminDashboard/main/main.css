@@ -1,0 +1,29 @@
+
+  @media (min-width: 200px) {
+    #scrollingImg{
+        margin-left: 210px;
+        width: 200px;
+        height: auto;
+      }
+      .heroBox{
+        width: 360px;
+        height: 100px;
+        position: relative;
+        margin-bottom: 50px;
+      }
+      .ele{
+        position: absolute;
+        top: 20px;
+        left:100px;
+      }
+  }
+  @media (min-width: 700px) {
+  
+  }
+  @media (min-width: 991.98px) {
+    
+    }
+
+    .boxIcons{
+        color: #f43f08;
+    }

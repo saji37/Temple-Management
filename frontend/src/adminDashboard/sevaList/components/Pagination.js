@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './Pagination.css'
 function Pagination(props) {
     const {nPages,currentPage, setCurrentPage} = props;
     const pageNumbers = [...Array(nPages + 1).keys()].slice(1);
@@ -19,12 +19,12 @@ function Pagination(props) {
       <a className="page-link"
         onClick={prevPage}
         href='#' >
-        Previous</a>
+       {'<<'} </a>
     </li>
 
     {pageNumbers.map(pgNumber => (
         <li key={pgNumber}
-        className={`page-item ${currentPage == pgNumber ? 'active' : ''}`}>
+        className={`page-item ${currentPage === pgNumber ? 'active' : ''} `}>
             
             <a onClick={()=> setCurrentPage(pgNumber)}
              className="page-link" href="#">
@@ -34,7 +34,7 @@ function Pagination(props) {
     ))}
     <li className="page-item">
       <a onClick={nextPage}
-      className="page-link" href="#">Next</a>
+      className="page-link" href="#">{'>>'} </a>
     </li>
   </ul>
 </nav>

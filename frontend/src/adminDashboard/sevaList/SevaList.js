@@ -6,16 +6,22 @@ import AddSeva from "./AddSeva";
 import DisplayList from "./DisplayList";
 import { createSevaList, getSevaList , removeSevaList, updateSevaList } from "../../services/services";
 import "./sevaList.css";
-import ConfirmBox from "./components/ConfirmBox";
-function SevaList() {
+import { PersonPlus } from "react-bootstrap-icons";
+import {motion} from 'framer-motion'
+
+function SevaList({ setActiveModel, activeModel }) {
   const [addPress, setAddPress] = useState(true);
   const [editPress, setEditPress] = useState(false);
   const [list,setList] = useState([])
   const [eid,setEid] = useState(0)
   const [sname,setSName] = useState('');
+  const [listLoading,setListLoading] = useState(true)
 
   useEffect(()=>{
-    getSevaList().then((data)=>data.json().then((data)=>setList(data)))
+    getSevaList().then((data)=>data.json().then((data)=>{
+      setListLoading(false)
+      setList(data)}
+      ))
   },[])
 
   function addPressed(){
@@ -73,25 +79,27 @@ function SevaList() {
   // },[list]);
 
   return (
-    <div className="wrappedContent">
+    <div className="wrappedContent  ">
       <header>
         <Header />
       </header>
-      <div className="container-fluid">
+      <div className="container-fluid h-full ">
         <div className="row flex-nowrap">
-          <Sidebar />
+          <Sidebar setActiveModel={setActiveModel} activeModel={activeModel}/>
         </div>
-        <div className="mx-auto col-md-8 " id="formContent">
+        <div className="mx-auto col-md-8" id="formContent">
           <main className="d-flex align-items-end flex-column bd-highlight mb-3">
             {addPress ? (
-              <button className="btn p-2 bd-highlight" id="addButton" onClick={addPressed} > Add </button>
+              // <div className="flex justify-start">
+              <button className="p-2 bd-highlight flex flex-nowrap rounded animate-bounce bg-[#f43f08] hover:bg-orange-500 hover:shadow-lg hover:shadow-orange-300" id="addButton" onClick={addPressed} > <PersonPlus className="pr-1" size={25}/>Add </button>
             ) : (
+              <motion.div animate={{x:100,scale:1}} initial={{scale:0}} className='col-md-12 align-items-start' id="animation1">
               <AddSeva addPressed={addPressed} addList={addList} eid={eid} editPress={editPress} setEditPress={setEditPress} lists={list} sname={sname} setSName={setSName} editPerson={editPerson}/>
+              </motion.div>
             )}
           </main>
         </div>
-      <DisplayList lists={list} removePerson={removePerson} updatePerson={updatePerson}/>
-      <ConfirmBox />
+      <DisplayList lists={list} removePerson={removePerson} updatePerson={updatePerson} listLoading={listLoading}/>
       </div>
     </div>
   );

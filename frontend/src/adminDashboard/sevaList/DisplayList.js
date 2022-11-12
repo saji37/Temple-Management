@@ -4,13 +4,14 @@ import Pagination from './components/Pagination';
 import {PersonXFill,PencilSquare} from 'react-bootstrap-icons';
 import ConfirmBox from './components/ConfirmBox';
 function DisplayList(props) {
-    const {lists,removePerson,updatePerson} = props;
-
-    const [confirmModel,setConfirmModel] = useState(false)
-// User is currently on this page
+    const {lists,removePerson,updatePerson ,listLoading} = props;
+  const [rid,setRid] = useState();
+    const [show, setShow] = useState(false);
+    
+    // User is currently on this page
 const [currentPage, setCurrentPage] = useState(1);
 // No of Records to be displayed on each page   
-const [recordsPerPage] = useState(5);
+const [recordsPerPage] = useState(10);
 
 const indexOfLastRecord = currentPage * recordsPerPage;
 const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
@@ -20,14 +21,50 @@ const currentRecords = lists.slice(indexOfFirstRecord, indexOfLastRecord);
 const nPages = Math.ceil(lists.length / recordsPerPage)
 // console.log(nPages)
 function takeConfirm(id){
-  setConfirmModel(true);
- 
+  setShow(true)
+  setRid(id)
 }
   return (
     
     <div className='displayTable col-md-8'>
-{/* <ConfirmBox /> */}
-      <table className="table table-hover border p-4">
+     {(listLoading)? (
+
+      <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+      <div class="animate-pulse flex space-x-4">
+        <div class="rounded-full bg-slate-200 h-10 w-10"></div>
+        <div class="flex-1 space-y-6 py-1">
+          <div class="h-2 bg-slate-200 rounded"></div>
+          <div class="space-y-3">
+            <div class="grid grid-cols-6 gap-4">
+            <div class="h-2 bg-slate-200 rounded col-span-2"></div>
+            <div class="h-2 bg-slate-200 rounded col-span-2"></div>
+              <div class="h-2 bg-slate-200 rounded col-span-2"></div>
+              <div class="h-2 bg-slate-200 rounded col-span-1"></div>
+            </div>
+            <div class="h-2 bg-slate-200 rounded"></div>
+          </div>
+        </div>
+      </div>
+      <div class="animate-pulse flex space-x-4">
+        <div class="rounded-full bg-slate-200 h-10 w-10"></div>
+        <div class="flex-1 space-y-6 py-1">
+          <div class="h-2 bg-slate-200 rounded"></div>
+          <div class="space-y-3">
+            <div class="grid grid-cols-6 gap-4">
+            <div class="h-2 bg-slate-200 rounded col-span-2"></div>
+            <div class="h-2 bg-slate-200 rounded col-span-2"></div>
+              <div class="h-2 bg-slate-200 rounded col-span-2"></div>
+              <div class="h-2 bg-slate-200 rounded col-span-1"></div>
+            </div>
+            <div class="h-2 bg-slate-200 rounded"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+     ):(
+      <>
+{(show)?<ConfirmBox setShow={setShow} show={show} id={rid} removePerson={removePerson} />:null}
+      <table className="table shadow-lg rounded " style={{fontFamily:'Merriweather'}}>
   <thead>
     <tr>
       <th scope="col">Name</th>
@@ -37,9 +74,9 @@ function takeConfirm(id){
   </thead>
   <tbody>
     {currentRecords.map((list,index) => {
-       return <tr key={index}>
+       return <tr key={index} className='text-slate-600 hover:text-white hover:bg-gradient-to-r from-[#f43f08] to-red-200 p-2' >
        <td>{list.name}</td>
-       <td><a href='#'><PencilSquare color='orange' size={20} onClick={()=>updatePerson(list.id)}/></a></td>
+       <td id='editButton'><a href='#'><PencilSquare color='green' size={20} onClick={()=>updatePerson(list.id)}/></a></td>
        {/* <td className='pe-auto'><PersonXFill color='red' size={20} onClick={removePerson} /></td> */}
        <td><a href='#'><PersonXFill color='red' size={20} onClick={()=>takeConfirm(list.id)} /></a></td>
      </tr>
@@ -55,34 +92,10 @@ function takeConfirm(id){
     setCurrentPage = { setCurrentPage }
 />
 </div>
+</>
+     )}
 
-<button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-  Open modal
-</button>
-
-<div className="modal" id="myModal">
-  <div className="modal-dialog">
-    <div className="modal-content">
-
- 
-      <div className="modal-header">
-        <h4 className="modal-title">Modal Heading</h4>
-        <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-   
-      <div className="modal-body">
-        Modal body..
-      </div>
-
-      <div className="modal-footer">
-        <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
-      </div>
-
-    </div>
-  </div>
 </div>    
-    </div>
   )
 }
 

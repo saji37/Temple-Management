@@ -1,16 +1,20 @@
 @media (min-width: 200px) {
   main {
-    padding-left: 80px;
+    padding-left: 60px;
+    margin-top: 80px;
   }
 }
 @media (min-width: 700px) {
   main {
     padding-left: 200px;
+    margin-top: 150px;
   }
 }
 @media (min-width: 991.98px) {
     main {
-      padding-left: 240px;
+      padding-left: 320px;
+      padding-right: 180px;
+      margin-top: 200px;
     }
   }
 .wrappedContent{

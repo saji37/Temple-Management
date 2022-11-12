@@ -1,28 +1,88 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './sidebar.css'
-import { PersonPlus,House,ListTask} from 'react-bootstrap-icons';
-function Sidebar() {
+import React from "react";
+import { Link } from "react-router-dom";
+import "./sidebar.css";
+
+import { PersonPlus, House, ListTask, PersonPlusFill, HouseFill } from "react-bootstrap-icons";
+function Sidebar(props) {
+    const { setActiveModel, activeModel } = props;
+    console.log(activeModel)
   return (
-    <div id='sideBar' className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 position-fixed ">
-            <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-             
-                <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start p-2 w-100 ">
-                    <li className="w-100 pt-3 sideBarEle" >
-                    <Link style={{textDecoration: 'none'}} to="/">
-                        <House className="icon" size={25}/><span className="ms-1 d-none d-md-inline">Home</span>
-                       </Link> 
-                    </li>
-                    <li className="w-100 pt-3 sideBarEle">
-                            <Link style={{textDecoration: 'none'}} to="/sevalist">
-                            <PersonPlus className="icon" size={25}/> <span className="d-none d-md-inline">Seva List</span></Link>
-                    </li>
-            
-                    <li className="w-100 pt-3 sideBarEle">
-                            <Link style={{textDecoration: 'none'}} to="/sevaorders">
-                            <ListTask className="icon" size={25}/> <span className="d-none d-md-inline">Seva Orders</span></Link>
-                    </li>
-                    {/* <li>
+    
+    <div
+      id="sideBar"
+      className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 position-fixed  "
+    >
+      <div className="d-flex flex-column align-items-center align-items-sm-start  pt-2 text-white min-vh-100">
+        <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start p-1 w-100 ">
+          {(activeModel === "Home")? (
+              <Link style={{ textDecoration: "none" }} to="/" className="w-100">
+            <li className="w-100  sideBarEleActive flex justify-start rounded p-2 m-2">
+                <div className=" w-full flex flex-nowrap">
+                  <HouseFill className="actived" size={25} />
+                  <span className="ms-1 d-none d-md-inline actived">Home</span>
+                </div>
+            </li>
+              </Link>
+          ) : (
+              <Link style={{ textDecoration: "none" }} to="/" className="w-100">
+            <li className="w-100  sideBarEle flex justify-start rounded p-2 m-2"  onClick={() => setActiveModel("Home")}>
+                <div
+                  className=" w-full flex flex-nowrap"
+                >
+                  <House className="icon" size={25} />
+                  <span className="ms-1 d-none d-md-inline">Home</span>
+                </div>
+            </li>
+              </Link>
+          )}
+
+          {activeModel === "Seva List" ? (
+              <Link style={{ textDecoration: "none" }} to="/sevalist" className="w-100">
+            <li className="w-100 pt-3 sideBarEleActive flex justify-start rounded p-2 m-2 ">
+                <div className=" w-full flex flex-nowrap place-items-center">
+                  {" "}
+                  <PersonPlusFill className="actived pr-1" size={25} />{" "}
+                  <span className="d-none d-md-inline actived">Seva List</span>
+                </div>
+            </li>
+              </Link>
+          ) : (
+              <Link style={{ textDecoration: "none" }} to="/sevalist" className="w-100">
+            <li className="w-100 pt-3 sideBarEle flex justify-start rounded p-2 m-2"   onClick={() => setActiveModel("Seva List")}> 
+                <div
+                  className=" w-full flex flex-nowrap place-items-center"
+                
+                >
+                  {" "}
+                  <PersonPlus className="icon" size={25} />{" "}
+                  <span className="d-none d-md-inline">Seva List</span>
+                </div>
+            </li>
+              </Link>
+          )}
+          {(activeModel === "Seva Orders" )? (
+
+            <Link style={{ textDecoration: "none" }} to="/sevaorders" className="w-100">
+          <li className="w-100 pt-3 sideBarEleActive flex justify-start rounded p-2 m-2">
+              {/* <ListTask className="icon" size={25}/> <span className="d-none d-md-inline">Seva Orders</span> */}
+              <div className=" w-full flex flex-nowrap place-items-center " >
+                <ListTask className="actived pr-1" size={25} />
+                <span className="d-none d-md-inline actived">Seva Orders</span>
+              </div>
+          </li>
+            </Link>
+          ):(
+            <Link style={{ textDecoration: "none" }} to="/sevaorders" className="w-100">
+            <li className="w-100 pt-3 sideBarEle flex justify-start rounded p-2 m-2" onClick={() => setActiveModel("Seva Orders")}>
+              {/* <ListTask className="icon" size={25}/> <span className="d-none d-md-inline">Seva Orders</span> */}
+              <div className=" w-full flex flex-nowrap place-items-center" > 
+                <ListTask className="icon pr-1" size={25} />
+                <span className="d-none d-md-inline">Seva Orders</span>
+              </div>
+          </li>
+            </Link>
+          )}
+          {/* <li>
                         <a href="#submenu2" data-bs-toggle="collapse" className="nav-link px-0 align-middle ">
                             <i className="fs-4 bi-bootstrap"></i> <span className="ms-1 d-none d-sm-inline">Bootstrap</span></a>
                         <ul className="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
@@ -73,10 +133,10 @@ function Sidebar() {
                         <li><a className="dropdown-item" href="#">Sign out</a></li>
                     </ul>
                 </div> */}
-                </ul>
-            </div>
-        </div>
-  )
+        </ul>
+      </div>
+    </div>
+  );
 }
 
-export default Sidebar
+export default Sidebar;

@@ -53,7 +53,7 @@ function AddSeva(props) {
   //  },[editPress]);
   return (
     <>
-          <div className="container-md shadow-lg rounded border border-1">
+          <div className="container-md shadow-lg rounded border border-1 col-md-10">
             <div className="p-3 ">
             <div className=" d-flex align-items-end flex-column bd-highlight mb-3">
               <X size={50} className='btn bd-highlight' onClick={addPressed}/>
@@ -62,7 +62,7 @@ function AddSeva(props) {
                 <input type="text" className="form-control " id="floatingInput" placeholder="Name" onChange={(e) =>setSName(e.target.value)} value={sname}/>
                 <label htmlFor="floatingInput ">Name</label>
               </div>
-              <button className="btn shadow shadow-lg" id="addButton" onClick={toAddList}>
+              <button className="btn shadow shadow-lg bg-[#f43f08]" id="btn" onClick={toAddList}>
               { (editPress)?'Edit': 'Add'}
               </button>
             </div>

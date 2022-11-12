@@ -2,10 +2,10 @@ import React from 'react'
 import './header.css'
 function Header() {
   return (
-    <nav id="main-navbar" className="navbar navbar-expand-lg fixed-top shadow-lg rounded">
+    <nav id="main-navbar" className="navbar navbar-expand-lg fixed-top shadow-lg rounded ">
     <div className="container-fluid">
 <div className="navbar-brand" href="#">
-        <h1>Seva</h1>
+        <h1 style={{fontFamily:'Permanent Marker'}} className='text-[#fdba74]'>Seva Application</h1>
       </div>
       <ul className="navbar-nav ms-auto d-flex flex-row">
       

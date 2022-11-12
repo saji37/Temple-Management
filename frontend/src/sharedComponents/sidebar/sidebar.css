@@ -1,23 +1,31 @@
 #sideBar{
-  background-color: #fe8447;
+  background-color: #f43f08;
   padding-top: 80px;
 }
 span{
   color: white;
   font-weight: bold;
 }
-
-.sideBarEle:hover{
+.sideBarEleActive{
   background-color:white;
-  color: #fe8447;
+  color: #f43f08;
 }
+
+.actived{
+  color: #f43f08;
+}
+.sideBarEle:hover{
+  background-color:rgb(244, 189, 167);
+  color: #f43f08;
+}
+
 .sideBarEle:hover span{
-  background-color:white;
-  color: #fe8447;
+  background-color:rgb(244, 189, 167);
+  color: #f43f08;
   
 }
 .sideBarEle:hover .icon{
-  color: #fe8447;
+  color: #f43f08;
   
 }
 .icon{

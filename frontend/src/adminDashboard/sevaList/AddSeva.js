@@ -4,7 +4,7 @@ import {X} from 'react-bootstrap-icons';
 function AddSeva(props) {
   const {addPressed,addList,eid,editPress,lists,setEditPress,sname,setSName,editPerson} = props;
   
-  var name;
+ 
 
   function toAddList(){
     if(editPress){

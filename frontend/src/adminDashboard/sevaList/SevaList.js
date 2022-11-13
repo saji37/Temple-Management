@@ -88,7 +88,7 @@ function SevaList({ setActiveModel, activeModel }) {
           <Sidebar setActiveModel={setActiveModel} activeModel={activeModel}/>
         </div>
         <div className="mx-auto col-md-8" id="formContent">
-          <main className="d-flex align-items-end flex-column bd-highlight mb-3">
+          <main className="d-flex align-items-end flex-column bd-highlight ">
             {addPress ? (
               // <div className="flex justify-start">
               <button className="p-2 bd-highlight flex flex-nowrap rounded animate-bounce bg-[#f43f08] hover:bg-orange-500 hover:shadow-lg hover:shadow-orange-300" id="addButton" onClick={addPressed} > <PersonPlus className="pr-1" size={25}/>Add </button>

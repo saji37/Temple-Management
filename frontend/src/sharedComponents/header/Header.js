@@ -1,11 +1,32 @@
 import React from 'react'
 import './header.css'
+import { useNavigate } from 'react-router';
 function Header() {
+  const navigate=useNavigate()
+  const name=localStorage.getItem('name');
+  if(localStorage.getItem("authenticated")){
+
+    //
+
+  }else{
+    navigate('/login')
+
+  }
+  var myDate = new Date();
+  var hours= myDate.getHours();
+  var greet;
+
+  if (hours < 12)
+      greet =  "Morning";
+  else if (hours >= 12 && hours <= 17)
+      greet = "Afternoon";
+  else if (hours >= 17 && hours <= 24)
+      greet = "Evening";
   return (
     <nav id="main-navbar" className="navbar navbar-expand-lg fixed-top shadow-lg rounded ">
     <div className="container-fluid">
 <div className="navbar-brand" href="#">
-        <h1 style={{fontFamily:'Permanent Marker'}} className='text-[#fdba74]'>Seva Application</h1>
+        <h1 style={{fontFamily:'Permanent Marker'}} className='text-[#fdba74]'>Seva Application </h1>
       </div>
       <ul className="navbar-nav ms-auto d-flex flex-row">
       
@@ -130,6 +151,9 @@ function Header() {
           </ul>
         </li> */}
       </ul>
+      <div style={{display:'flex',color:'white'}} className='d-none d-md-block'>
+      <i><h4 className='space-y-5'>Good {greet} ,</h4></i>
+    <h3 style={{margin:'10px'}}>{name}</h3></div>
     </div>
   </nav>
   )

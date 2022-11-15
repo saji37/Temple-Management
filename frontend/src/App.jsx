@@ -4,7 +4,6 @@ import Dashboard from './adminDashboard/dashboard';
 import SevaList from './adminDashboard/sevaList/SevaList';
 import SevaOrders from './adminDashboard/sevaOrders/SevaOrders';
 import { Route,BrowserRouter, Routes,Navigate} from 'react-router-dom';
-import  {}  from 'react-router';
 import Login from './login/Login';
 function App() {
   const [activeModel,setActiveModel] =useState('Home');

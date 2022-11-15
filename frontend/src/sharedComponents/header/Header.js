@@ -1,17 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './header.css'
 import { useNavigate } from 'react-router';
 function Header() {
   const navigate=useNavigate()
   const name=localStorage.getItem('name');
-  if(localStorage.getItem("authenticated")){
-
-    //
-
-  }else{
-    navigate('/login')
-
-  }
+  useEffect(()=>{
+    if(!localStorage.getItem("authenticated")){
+      navigate('/login')
+    }
+  },[])
+ 
   var myDate = new Date();
   var hours= myDate.getHours();
   var greet;

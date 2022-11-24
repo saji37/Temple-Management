@@ -2,13 +2,13 @@ import React, { useEffect } from 'react'
 import './header.css'
 import { useNavigate } from 'react-router';
 function Header() {
-  const navigate=useNavigate()
-  const name=localStorage.getItem('name');
-  useEffect(()=>{
-    if(!localStorage.getItem("authenticated")){
-      navigate('/login')
-    }
-  },[])
+  // const navigate=useNavigate()
+  // const name=localStorage.getItem('name');
+  // useEffect(()=>{
+  //   if(!localStorage.getItem("authenticated")){
+  //     navigate('/login')
+  //   }
+  // },[])
  
   var myDate = new Date();
   var hours= myDate.getHours();
@@ -150,8 +150,8 @@ function Header() {
         </li> */}
       </ul>
       <div style={{display:'flex',color:'white',flexDirection:'row'}} className='d-none d-md-block'>
-      <i><h4 className='space-y-5'>Good {greet} ,</h4></i>
-    <h3 style={{margin:'10px'}}>{name}</h3>
+      <i><h4 className='space-y-5'>Good {greet} </h4></i>
+    {/* <h3 style={{margin:'10px'}}>{name}</h3> */}
     </div>
     </div>
   </nav>

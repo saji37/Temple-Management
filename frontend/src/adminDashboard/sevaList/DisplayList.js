@@ -76,7 +76,7 @@ function takeConfirm(id){
   <tbody>
     {currentRecords.map((list,index) => {
        return <tr key={index} className='text-slate-600 hover:text-white hover:bg-gradient-to-r from-[#f43f08] to-red-200 p-2' >
-       <td>{list.name}</td>
+       <td>{list.title}</td>
        <td id='editButton'><a href='#'><PencilSquare color='green' size={20} onClick={()=>updatePerson(list.id)}/></a></td>
        {/* <td className='pe-auto'><PersonXFill color='red' size={20} onClick={removePerson} /></td> */}
        <td><a href='#'><PersonXFill color='red' size={20} onClick={()=>takeConfirm(list.id)} /></a></td>

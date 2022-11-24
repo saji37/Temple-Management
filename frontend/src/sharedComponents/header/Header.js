@@ -149,9 +149,10 @@ function Header() {
           </ul>
         </li> */}
       </ul>
-      <div style={{display:'flex',color:'white'}} className='d-none d-md-block'>
+      <div style={{display:'flex',color:'white',flexDirection:'row'}} className='d-none d-md-block'>
       <i><h4 className='space-y-5'>Good {greet} ,</h4></i>
-    <h3 style={{margin:'10px'}}>{name}</h3></div>
+    <h3 style={{margin:'10px'}}>{name}</h3>
+    </div>
     </div>
   </nav>
   )
